@@ -75,30 +75,21 @@ const IndexPage: FC = () => {
           <Feature>
             <h3>Manage Your Sites</h3>
             <P>
-              Maybe you have two Netlify accounts and maybe you don't want to
-              logout to use the other one all the time. Well, know you can do
-              that.
+              See all the builds of your sites, manage your site and build
+              settings.
             </P>
           </Feature>
         </Cell>
         <Cell span={2}>
           <Feature>
             <h3>View Form Submissions</h3>
-            <P>
-              Maybe you have two Netlify accounts and maybe you don't want to
-              logout to use the other one all the time. Well, know you can do
-              that.
-            </P>
+            <P>Manage both Netlify forms and submissions with ease.</P>
           </Feature>
         </Cell>
         <Cell span={2}>
           <Feature>
             <h3>Manage Builds & Deploys</h3>
-            <P>
-              Maybe you have two Netlify accounts and maybe you don't want to
-              logout to use the other one all the time. Well, know you can do
-              that.
-            </P>
+            <P>See why the build failed, see all your deploy previews.</P>
           </Feature>
         </Cell>
 
