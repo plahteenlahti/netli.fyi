@@ -11,9 +11,16 @@ import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
 function SEO({ description, lang, meta, title }) {
-  const { site } = useStaticQuery(
+  const { site, card } = useStaticQuery(
     graphql`
       query {
+        card: file(relativePath: { eq: "card.png" }) {
+          childImageSharp {
+            fixed(width: 1200, height: 630) {
+              src
+            }
+          }
+        }
         site {
           siteMetadata {
             title
@@ -54,7 +61,7 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           name: `twitter:card`,
-          content: `summary`,
+          content: `summary_large_image`,
         },
         {
           name: `twitter:creator`,
@@ -63,6 +70,10 @@ function SEO({ description, lang, meta, title }) {
         {
           name: `twitter:title`,
           content: title,
+        },
+        {
+          name: `twitter:image`,
+          content: `https://netli.fyi${card.childImageSharp.fixed.src}`,
         },
         {
           name: `twitter:description`,

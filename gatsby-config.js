@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Deploys: Manage your Netlify Sites`,
-    description: `Manage your Netlify sites on the go.`,
+    description: `Deploys: Manage your Netlify sites on the go. An app designed and built for iOS and Android by Perttu Lähteenlahti`,
     author: `@plahteenlahti`,
   },
   plugins: [

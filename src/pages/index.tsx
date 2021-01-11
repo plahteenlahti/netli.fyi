@@ -67,7 +67,7 @@ const IndexPage: FC = () => {
 
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO title="Deploys | Your Netlify Deployments On The Go" />
 
       <Grid>
         {/* Row 1 */}
@@ -236,7 +236,14 @@ const Cell = styled.div<ColumnProps>`
   border-radius: 16px;
   box-sizing: border-box;
 
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 100px) {
+    padding: 0px 12px;
+    flex-direction: column;
+    height: auto;
+    grid-column: span 4 / auto;
+  }
+
+  @media screen and (max-width: 700px) {
     padding: 0px 12px;
     flex-direction: column;
     height: auto;
