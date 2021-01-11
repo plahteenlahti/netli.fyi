@@ -97,6 +97,17 @@ const IndexPage: FC = () => {
 
         <Cell span={2}>
           <Feature>
+            <Profiles>
+              <System>
+                <Orbit>
+                  <Profile1 />
+                </Orbit>
+                <Orbit>
+                  <Profile2 />
+                </Orbit>
+              </System>
+            </Profiles>
+
             <h3>Multiple accounts</h3>
             <P>
               Maybe you have two Netlify accounts and maybe you don't want to
@@ -352,4 +363,77 @@ const DarkPreview = styled.div`
   z-index: 2;
   border-top-left-radius: 8px;
   overflow: hidden;
+`
+
+const Profiles = styled.div`
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+`
+
+const invertOrbit = keyframes`
+	0% {
+		transform: rotateZ(360deg) rotateY(30deg) rotateX(-75deg);
+	}
+	100% {
+		transform: rotateZ(0deg) rotateY(30deg) rotateX(-75deg);
+	}
+`
+
+const orbit = keyframes`
+	0% {
+			transform: rotateZ(0deg);
+	}
+	100% {
+			transform: rotateZ(360deg);
+	}
+`
+
+const Orbit = styled.div`
+  animation: 5s ease-in-out 0s infinite alternate running ${orbit};
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16em;
+  height: 16em;
+  margin-top: -8em;
+  margin-left: -8em;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+`
+
+const System = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform: rotateX(75deg) rotateY(-30deg);
+  transform-style: preserve-3d;
+`
+
+const Profile1 = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 64px;
+  width: 64px;
+  border-radius: 64px;
+  background-color: ${({ theme }) => theme.primaryText};
+  animation: 5s ease-in-out infinite alternate running ${invertOrbit};
+  transform-style: preserve-3d;
+`
+
+const Profile2 = styled.div`
+  position: absolute;
+  bottom: 50%;
+  right: 50%;
+  height: 64px;
+  width: 64px;
+  border-radius: 64px;
+  background-color: ${({ theme }) => theme.secondaryText};
+  animation-delay: 5s;
+  animation: 5s ease-in-out infinite alternate running ${invertOrbit};
+  transform-style: preserve-3d;
 `
