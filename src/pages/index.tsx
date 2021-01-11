@@ -44,9 +44,9 @@ const IndexPage: FC = () => {
           </Container>
         </Cell>
         <Cell span={2}>
-          <Container>
+          <DownloadContainer>
             <h3>Get it today</h3>
-
+            <P>Avaible for both iPhone and Android devices.</P>
             <Button>
               <ButtonBG />
               <ButtonContent>
@@ -66,7 +66,7 @@ const IndexPage: FC = () => {
                 </ButtonText>
               </ButtonContent>
             </Button>
-          </Container>
+          </DownloadContainer>
         </Cell>
 
         {/* Row 2 */}
@@ -160,6 +160,12 @@ const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 32px;
+
+  @media screen and (max-width: 1000px) {
+    gap: 12px;
+    margin: 12px auto 0px;
+    padding: 0px 12px;
+  }
 `
 
 type ColumnProps = {
@@ -177,7 +183,7 @@ const Cell = styled.div<ColumnProps>`
   box-sizing: border-box;
 
   @media screen and (max-width: 1000px) {
-    padding: 0px 24px;
+    padding: 0px 12px;
     flex-direction: column;
     height: auto;
     grid-column: span 6 / auto;
@@ -189,6 +195,24 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   height: 100%;
+
+  @media screen and (max-width: 1000px) {
+    padding: 24px;
+  }
+`
+
+const DownloadContainer = styled.div`
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  text-align: center;
+
+  @media screen and (max-width: 1000px) {
+    padding: 24px;
+  }
 `
 
 const ProductName = styled.span`
@@ -222,6 +246,9 @@ const Feature = styled.div`
   justify-content: flex-end;
   text-align: center;
   height: 100%;
+  @media screen and (max-width: 1000px) {
+    padding: 24px;
+  }
 `
 
 const P = styled.p`
@@ -244,6 +271,11 @@ const Row = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+
+  @media screen and (max-width: 1000px) {
+    padding: 24px 0px;
+    min-height: 350px;
+  }
 `
 
 const LeftColumn = styled.div`
@@ -319,6 +351,7 @@ const Button = styled.div`
   border-radius: 8px;
   box-shadow: rgb(0, 0, 0) 0px 0px 40px;
   box-sizing: border-box;
+  width: 250px;
 `
 
 const ButtonContent = styled.div`
@@ -372,6 +405,7 @@ const Profiles = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  min-height: 250px;
 `
 
 const invertOrbit = keyframes`
@@ -409,14 +443,14 @@ const System = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
-  transform: rotateX(75deg) rotateY(-30deg);
+  transform: rotateX(75deg);
   transform-style: preserve-3d;
 `
 
 const Profile1 = styled.div`
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 80%;
+  left: 80%;
   height: 64px;
   width: 64px;
   border-radius: 64px;
@@ -427,8 +461,8 @@ const Profile1 = styled.div`
 
 const Profile2 = styled.div`
   position: absolute;
-  bottom: 50%;
-  right: 50%;
+  bottom: 80%;
+  right: 80%;
   height: 64px;
   width: 64px;
   border-radius: 64px;
