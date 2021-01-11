@@ -11,7 +11,14 @@ import { graphql, useStaticQuery } from "gatsby"
 const IndexPage: FC = () => {
   const productName = "Deploys"
 
-  const { lightUI, darkUI } = useStaticQuery(graphql`
+  const {
+    lightUI,
+    darkUI,
+    perttu,
+    perttu2,
+    deploys,
+    forms,
+  } = useStaticQuery(graphql`
     query {
       lightUI: file(relativePath: { eq: "light-ui.jpg" }) {
         childImageSharp {
@@ -23,6 +30,34 @@ const IndexPage: FC = () => {
       darkUI: file(relativePath: { eq: "dark-ui.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 300) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      deploys: file(relativePath: { eq: "preview.jpeg" }) {
+        childImageSharp {
+          fluid(maxWidth: 300) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      forms: file(relativePath: { eq: "darkpreview.jpeg" }) {
+        childImageSharp {
+          fluid(maxWidth: 300) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      perttu: file(relativePath: { eq: "perttu.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 150) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      perttu2: file(relativePath: { eq: "perttu2.jpeg" }) {
+        childImageSharp {
+          fluid(maxWidth: 150) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -42,6 +77,9 @@ const IndexPage: FC = () => {
             <ProductName>{productName}</ProductName>
             <Title>Manage your Netlify sites on the go.</Title>
           </Container>
+          <AbsolutePositionedImage>
+            <Image image={forms?.childImageSharp?.fluid} />
+          </AbsolutePositionedImage>
         </Cell>
         <Cell span={2}>
           <DownloadContainer>
@@ -73,6 +111,11 @@ const IndexPage: FC = () => {
 
         <Cell span={2}>
           <Feature>
+            <ImageBG>
+              <RoundImageContainer>
+                <Image image={deploys?.childImageSharp?.fluid} />
+              </RoundImageContainer>
+            </ImageBG>
             <h3>Manage Your Sites</h3>
             <P>
               See all the builds of your sites, manage your site and build
@@ -82,12 +125,23 @@ const IndexPage: FC = () => {
         </Cell>
         <Cell span={2}>
           <Feature>
+            <ImageBG>
+              <RoundImageContainer>
+                <Image image={forms?.childImageSharp?.fluid} />
+              </RoundImageContainer>
+            </ImageBG>
+
             <h3>View Form Submissions</h3>
             <P>Manage both Netlify forms and submissions with ease.</P>
           </Feature>
         </Cell>
         <Cell span={2}>
           <Feature>
+            <ImageBG>
+              <RoundImageContainer>
+                <Image image={darkUI?.childImageSharp?.fluid} />
+              </RoundImageContainer>
+            </ImageBG>
             <h3>Manage Builds & Deploys</h3>
             <P>See why the build failed, see all your deploy previews.</P>
           </Feature>
@@ -100,10 +154,14 @@ const IndexPage: FC = () => {
             <Profiles>
               <System>
                 <Orbit>
-                  <Profile1 />
+                  <Profile1>
+                    <Image image={perttu?.childImageSharp?.fluid} />
+                  </Profile1>
                 </Orbit>
                 <Orbit>
-                  <Profile2 />
+                  <Profile2>
+                    <Image image={perttu2?.childImageSharp?.fluid} />
+                  </Profile2>
                 </Orbit>
               </System>
             </Profiles>
@@ -133,10 +191,6 @@ const IndexPage: FC = () => {
             </UIContainer>
           </Row>
         </Cell>
-
-        {/* Row 4 */}
-
-        <Cell span={6}></Cell>
       </Grid>
     </Layout>
   )
@@ -225,6 +279,7 @@ const Title = styled.h1`
 
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
+  z-index: 3;
 
   background-image: url(${gradient});
 
@@ -443,26 +498,30 @@ const System = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
-  transform: rotateX(75deg);
+  transform: rotateX(90deg);
   transform-style: preserve-3d;
 `
 
 const Profile1 = styled.div`
   position: absolute;
-  top: 80%;
-  left: 80%;
+  top: 50%;
+  left: 50%;
   height: 64px;
   width: 64px;
   border-radius: 64px;
   background-color: ${({ theme }) => theme.primaryText};
   animation: 5s ease-in-out infinite alternate running ${invertOrbit};
   transform-style: preserve-3d;
+  overflow: hidden;
+  & .gatsby-image-wrapper {
+    transform: rotate(-25deg);
+  }
 `
 
 const Profile2 = styled.div`
   position: absolute;
-  bottom: 80%;
-  right: 80%;
+  bottom: 50%;
+  right: 50%;
   height: 64px;
   width: 64px;
   border-radius: 64px;
@@ -470,4 +529,47 @@ const Profile2 = styled.div`
   animation-delay: 5s;
   animation: 5s ease-in-out infinite alternate running ${invertOrbit};
   transform-style: preserve-3d;
+  overflow: hidden;
+  & .gatsby-image-wrapper {
+    transform: rotate(-25deg);
+  }
+`
+
+const ImageBG = styled.div`
+  min-height: 250px;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background-image: url(${gradient});
+  background-size: cover;
+  animation: ${rotateHue} 5s ease-in-out infinite alternate;
+  border-radius: 16px;
+  margin-bottom: 32px;
+`
+
+const RoundImageContainer = styled.div`
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 30px;
+  top: 30px;
+  border-top-left-radius: 15px;
+  overflow: hidden;
+`
+
+const AbsolutePositionedImage = styled.div`
+  position: absolute;
+  right: 30px;
+  top: 30px;
+  bottom: 0;
+  width: 40%;
+  z-index: 1;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  overflow: hidden;
+  box-shadow: rgb(0, 0, 0) 0px 0px 40px;
+
+  img {
+    object-fit: cover;
+  }
 `
