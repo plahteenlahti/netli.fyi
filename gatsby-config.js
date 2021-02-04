@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Deploys: Manage your Netlify Sites`,
-    description: `Deploys: Manage your Netlify sites on the go. An app designed and built for iOS and Android by Perttu Lähteenlahti`,
+    title: `Netli.fyi`,
+    description: `Netli.fyi: Manage your Netlify sites on the go. An app designed and built for iOS and Android by Perttu Lähteenlahti`,
     author: `@plahteenlahti`,
   },
   plugins: [
@@ -27,8 +27,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Deploys`,
-        short_name: `Deploys`,
+        name: `Netli.fyi`,
+        short_name: `Netli.fyi`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,

@@ -9,7 +9,7 @@ import Image from "../components/image"
 import { graphql, useStaticQuery } from "gatsby"
 
 const IndexPage: FC = () => {
-  const productName = "Deploys"
+  const productName = "Netli.fyi"
 
   const {
     lightUI,
@@ -67,7 +67,7 @@ const IndexPage: FC = () => {
 
   return (
     <Layout>
-      <SEO title="Deploys | Your Netlify Deployments On The Go" />
+      <SEO title="Manage your Netlify deployments on the go" />
 
       <Grid>
         {/* Row 1 */}
@@ -81,11 +81,11 @@ const IndexPage: FC = () => {
             <Image image={forms?.childImageSharp?.fluid} />
           </AbsolutePositionedImage>
         </Cell>
-        <Cell span={2}>
+        <Cell span={2} noBackground>
           <DownloadContainer>
             <h3>Get it today</h3>
             <P>Avaible for both iPhone and Android devices.</P>
-            <Button>
+            <Button href="">
               <ButtonBG />
               <ButtonContent>
                 <ButtonText>
@@ -95,7 +95,7 @@ const IndexPage: FC = () => {
               </ButtonContent>
             </Button>
 
-            <Button>
+            <Button href="">
               <ButtonBG />
               <ButtonContent>
                 <ButtonText>
@@ -142,7 +142,7 @@ const IndexPage: FC = () => {
                 <Image image={darkUI?.childImageSharp?.fluid} />
               </RoundImageContainer>
             </ImageBG>
-            <h3>Manage Builds & Deploys</h3>
+            <h3>Manage Sites & Deploys</h3>
             <P>See why the build failed, see all your deploy previews.</P>
           </Feature>
         </Cell>
@@ -168,9 +168,9 @@ const IndexPage: FC = () => {
 
             <h3>Multiple accounts</h3>
             <P>
-              Maybe you have two Netlify accounts and maybe you don't want to
-              logout to use the other one all the time. Well, know you can do
-              that.
+              (Coming soon) Maybe you have two Netlify accounts and maybe you
+              don't want to logout to use the other one all the time. Well, know
+              you can do that.
             </P>
           </Feature>
         </Cell>
@@ -224,10 +224,12 @@ const Grid = styled.div`
 
 type ColumnProps = {
   span: number
+  noBackground?: boolean
 }
 
 const Cell = styled.div<ColumnProps>`
-  background-color: ${({ theme }) => theme.secondaryBackground};
+  background-color: ${({ theme, noBackground }) =>
+    noBackground ? theme.primaryBackground : theme.secondaryBackground};
   position: relative;
   overflow: hidden;
   width: 100%;
@@ -406,7 +408,8 @@ const ButtonBG = styled.div`
   );
 `
 
-const Button = styled.div`
+const Button = styled.a`
+  display: block;
   margin: 16px 0px;
   position: relative;
   padding: 1px;
@@ -414,6 +417,7 @@ const Button = styled.div`
   box-shadow: rgb(0, 0, 0) 0px 0px 40px;
   box-sizing: border-box;
   width: 250px;
+  text-decoration: none;
 `
 
 const ButtonContent = styled.div`
@@ -425,6 +429,7 @@ const ButtonContent = styled.div`
   box-sizing: border-box;
 `
 const ButtonText = styled.div`
+  text-decoration: none;
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
   background-image: url(${gradient});
@@ -432,6 +437,7 @@ const ButtonText = styled.div`
   animation: ${rotateHue} 5s ease-in-out infinite alternate;
 
   span {
+    text-decoration: none;
     margin-left: 16px;
   }
 `
