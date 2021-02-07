@@ -45,7 +45,6 @@ module.exports = {
         icon: `src/images/gradient.png`,
       },
     },
-    `gatsby-plugin-offline`,
     "gatsby-plugin-typescript",
     "gatsby-plugin-styled-components",
   ],
