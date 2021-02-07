@@ -3,7 +3,7 @@
         "apps": [],
         "details": [{
             "appID": "RPKZ2YP3VZ.app.nyxo.deploy",
-            "paths": ["/redirect",]
+            "paths": ["/redirect", "/redirect/"]
             }
         ]
     }
