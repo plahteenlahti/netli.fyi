@@ -12,6 +12,7 @@ const IndexPage: FC = () => {
   const productName = "Netli.fyi"
 
   const {
+    start,
     lightUI,
     darkUI,
     perttu,
@@ -20,28 +21,35 @@ const IndexPage: FC = () => {
     forms,
   } = useStaticQuery(graphql`
     query {
-      lightUI: file(relativePath: { eq: "light-ui.jpg" }) {
+      start: file(relativePath: { eq: "start.png" }) {
         childImageSharp {
           fluid(maxWidth: 300) {
             ...GatsbyImageSharpFluid
           }
         }
       }
-      darkUI: file(relativePath: { eq: "dark-ui.jpg" }) {
+      lightUI: file(relativePath: { eq: "light-ui.png" }) {
         childImageSharp {
           fluid(maxWidth: 300) {
             ...GatsbyImageSharpFluid
           }
         }
       }
-      deploys: file(relativePath: { eq: "preview.jpeg" }) {
+      darkUI: file(relativePath: { eq: "dark-ui.png" }) {
         childImageSharp {
           fluid(maxWidth: 300) {
             ...GatsbyImageSharpFluid
           }
         }
       }
-      forms: file(relativePath: { eq: "darkpreview.jpeg" }) {
+      deploys: file(relativePath: { eq: "deploy.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 300) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      forms: file(relativePath: { eq: "form.png" }) {
         childImageSharp {
           fluid(maxWidth: 300) {
             ...GatsbyImageSharpFluid
@@ -67,7 +75,7 @@ const IndexPage: FC = () => {
 
   return (
     <Layout>
-      <SEO title="Manage your Netlify deployments on the go" />
+      <SEO title="The Mobile App for Netlify" />
 
       <Grid>
         {/* Row 1 */}
@@ -78,29 +86,33 @@ const IndexPage: FC = () => {
             <Title>Manage your Netlify sites on the go.</Title>
           </Container>
           <AbsolutePositionedImage>
-            <Image image={forms?.childImageSharp?.fluid} />
+            <Image image={start?.childImageSharp?.fluid} />
           </AbsolutePositionedImage>
         </Cell>
+
         <Cell span={2} noBackground>
           <DownloadContainer>
-            <h3>Get it today</h3>
-            <P>Avaible for both iPhone and Android devices.</P>
-            <Button href="">
+            <h3>Coming soon for iOS and Android</h3>
+            <P>
+              Currently available in Open Beta for both iPhone and Android
+              devices.
+            </P>
+            <Button href="https://testflight.apple.com/join/cTsXZE42">
               <ButtonBG />
               <ButtonContent>
                 <ButtonText>
                   <FontAwesomeIcon icon={faApple} />
-                  <span>Download for iOS</span>
+                  <span>Beta for iOS</span>
                 </ButtonText>
               </ButtonContent>
             </Button>
 
-            <Button href="">
+            <Button href="https://play.google.com/apps/testing/deploy.nyxo.app">
               <ButtonBG />
               <ButtonContent>
                 <ButtonText>
                   <FontAwesomeIcon icon={faAndroid} />
-                  <span>Download for Android</span>
+                  <span>Beta for Android</span>
                 </ButtonText>
               </ButtonContent>
             </Button>
@@ -117,10 +129,7 @@ const IndexPage: FC = () => {
               </RoundImageContainer>
             </ImageBG>
             <h3>Manage Your Sites</h3>
-            <P>
-              See all the builds of your sites, manage your site and build
-              settings.
-            </P>
+            <P>See all your of your sites at a glance.</P>
           </Feature>
         </Cell>
         <Cell span={2}>
@@ -143,7 +152,7 @@ const IndexPage: FC = () => {
               </RoundImageContainer>
             </ImageBG>
             <h3>Manage Sites & Deploys</h3>
-            <P>See why the build failed, see all your deploy previews.</P>
+            <P>See why the build failed and other deployment information.</P>
           </Feature>
         </Cell>
 
@@ -152,7 +161,7 @@ const IndexPage: FC = () => {
         <Cell span={2}>
           <Feature>
             <Profiles>
-              <System>
+              {/* <System>
                 <Orbit>
                   <Profile1>
                     <Image image={perttu?.childImageSharp?.fluid} />
@@ -163,14 +172,17 @@ const IndexPage: FC = () => {
                     <Image image={perttu2?.childImageSharp?.fluid} />
                   </Profile2>
                 </Orbit>
-              </System>
+              </System> */}
             </Profiles>
 
-            <h3>Multiple accounts</h3>
+            <h3>
+              (Upcoming feature) <br></br>
+              Multiple accounts
+            </h3>
             <P>
-              (Coming soon) Maybe you have two Netlify accounts and maybe you
-              don't want to logout to use the other one all the time. Well, know
-              you can do that.
+              Maybe you have two Netlify accounts and maybe you don't want to
+              logout to use the other one all the time. With the upcoming
+              multiple accounts feature you no longer have to do that.
             </P>
           </Feature>
         </Cell>
@@ -245,7 +257,7 @@ const Cell = styled.div<ColumnProps>`
     grid-column: span 4 / auto;
   }
 
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 800px) {
     padding: 0px 12px;
     flex-direction: column;
     height: auto;
@@ -296,22 +308,31 @@ const Title = styled.h1`
   animation: ${rotateHue} 5s ease-in-out infinite alternate;
 
   @media screen and (max-width: 1000px) {
-    text-align: center;
     line-height: 3rem;
     font-size: 2.5rem;
-    max-width: 100%;
+    max-width: 50%;
+  }
+
+  @media screen and (max-width: 700px) {
+    line-height: 2.5rem;
+    font-size: 2rem;
+    max-width: 50%;
   }
 `
 
 const Feature = styled.div`
-  padding: 32px;
   display: flex;
+  box-sizing: border-box;
   flex-direction: column;
   justify-content: flex-end;
   text-align: center;
-  height: 100%;
-  @media screen and (max-width: 1000px) {
-    padding: 24px;
+
+  p {
+    padding: 32px;
+
+    @media screen and (max-width: 1000px) {
+      padding: 24px;
+    }
   }
 `
 
@@ -322,6 +343,7 @@ const P = styled.p`
 const UIContainer = styled.div`
   height: 100%;
   width: 100%;
+  overflow: hidden;
   position: relative;
   background-image: url(${gradient});
   background-size: cover;
@@ -337,7 +359,7 @@ const Row = styled.div`
   align-items: center;
 
   @media screen and (max-width: 1000px) {
-    padding: 24px 0px;
+    padding: 24px 24px;
     min-height: 350px;
   }
 `
@@ -551,13 +573,14 @@ const Profile2 = styled.div`
 const ImageBG = styled.div`
   min-height: 250px;
   height: 100%;
-  width: 100%;
   position: relative;
   background-image: url(${gradient});
   background-size: cover;
   animation: ${rotateHue} 5s ease-in-out infinite alternate;
   border-radius: 16px;
-  margin-bottom: 32px;
+  margin: 12px 12px 32px;
+  box-sizing: border-box;
+  overflow: hidden;
 `
 
 const RoundImageContainer = styled.div`
