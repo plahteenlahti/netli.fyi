@@ -495,7 +495,7 @@ const Profiles = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  min-height: 250px;
+  min-height: 150px;
 `
 
 const invertOrbit = keyframes`
