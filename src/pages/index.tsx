@@ -92,27 +92,31 @@ const IndexPage: FC = () => {
 
         <Cell span={2} noBackground>
           <DownloadContainer>
-            <h3>Coming soon for iOS and Android</h3>
+            <h3>Available now for both iOS and Android</h3>
             <P>
-              Currently available in Open Beta for both iPhone and Android
-              devices.
+              You can also join the{" "}
+              <a href="https://testflight.apple.com/join/cTsXZE42">iOS</a> or{" "}
+              <a href="https://play.google.com/apps/testing/deploy.nyxo.app">
+                Android
+              </a>{" "}
+              betas for free and get first access to new features.
             </P>
-            <Button href="https://testflight.apple.com/join/cTsXZE42">
+            <Button href="https://apps.apple.com/app/id1547834539">
               <ButtonBG />
               <ButtonContent>
                 <ButtonText>
                   <FontAwesomeIcon icon={faApple} />
-                  <span>Beta for iOS</span>
+                  <span>Download for iOS</span>
                 </ButtonText>
               </ButtonContent>
             </Button>
 
-            <Button href="https://play.google.com/apps/testing/deploy.nyxo.app">
+            <Button href="https://play.google.com/store/apps/details?id=deploy.nyxo.app">
               <ButtonBG />
               <ButtonContent>
                 <ButtonText>
                   <FontAwesomeIcon icon={faAndroid} />
-                  <span>Beta for Android</span>
+                  <span>Download for Android</span>
                 </ButtonText>
               </ButtonContent>
             </Button>
@@ -125,7 +129,7 @@ const IndexPage: FC = () => {
           <Feature>
             <ImageBG>
               <RoundImageContainer>
-                <Image image={deploys?.childImageSharp?.fluid} />
+                <Image image={darkUI?.childImageSharp?.fluid} />
               </RoundImageContainer>
             </ImageBG>
             <h3>Manage Your Sites</h3>
@@ -148,7 +152,7 @@ const IndexPage: FC = () => {
           <Feature>
             <ImageBG>
               <RoundImageContainer>
-                <Image image={darkUI?.childImageSharp?.fluid} />
+                <Image image={deploys?.childImageSharp?.fluid} />
               </RoundImageContainer>
             </ImageBG>
             <h3>Manage Sites & Deploys</h3>

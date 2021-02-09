@@ -116,6 +116,8 @@ template {
 }
 a {
   background-color: transparent;
+	color: #8425e2;
+	text-decoration: none;
   -webkit-text-decoration-skip: objects;
 }
 a:active,
