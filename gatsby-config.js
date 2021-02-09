@@ -43,6 +43,12 @@ module.exports = {
         theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/images/gradient.png`,
+        prefer_related_applications: true,
+        related_applications: {
+          platform: "play",
+          url: "https://play.google.com/store/apps/details?id=deploy.nyxo.app",
+          id: "deploy.nyxo.app",
+        },
       },
     },
     "gatsby-plugin-typescript",

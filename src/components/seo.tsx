@@ -79,8 +79,12 @@ function SEO({ description, lang, meta, title }) {
           name: `twitter:description`,
           content: metaDescription,
         },
+        {
+          name: `apple-itunes-app`,
+          content: `app-id=1547834539`,
+        },
       ].concat(meta)}
-    />
+    ></Helmet>
   )
 }
 
