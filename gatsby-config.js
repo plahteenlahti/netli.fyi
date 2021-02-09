@@ -20,6 +20,7 @@ module.exports = {
         path: `${__dirname}/src/changelog`,
       },
     },
+    `gatsby-plugin-remove-serviceworker`,
     `gatsby-plugin-well-known`,
     `gatsby-transformer-remark`,
     `gatsby-transformer-sharp`,
