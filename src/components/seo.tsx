@@ -56,6 +56,10 @@ function SEO({ description, lang, meta, title }) {
           content: metaDescription,
         },
         {
+          property: `og:image`,
+          content: `https://netli.fyi${card.childImageSharp.fixed.src}`,
+        },
+        {
           property: `og:type`,
           content: `website`,
         },
