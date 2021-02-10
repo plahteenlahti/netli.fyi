@@ -38,13 +38,7 @@ const Layout = ({ children }) => {
       <Styles />
       <Page>
         <main>{children}</main>
-        <footer
-          style={{
-            marginTop: `2rem`,
-          }}
-        >
-          © {new Date().getFullYear()} Perttu Lähteenlahti
-        </footer>
+        <Footer>© {new Date().getFullYear()} Perttu Lähteenlahti</Footer>
       </Page>
     </ThemeProvider>
   )
@@ -58,6 +52,11 @@ export default Layout
 
 const Page = styled.div`
   background-color: ${({ theme }) => theme.primaryBackground};
+`
+
+const Footer = styled.footer`
+  text-align: center;
+  padding: 30px;
 `
 
 const Styles = createGlobalStyle`
