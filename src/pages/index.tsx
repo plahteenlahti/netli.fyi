@@ -120,6 +120,20 @@ const IndexPage: FC = () => {
                 </ButtonText>
               </ButtonContent>
             </Button>
+
+            <a
+              href="https://www.producthunt.com/posts/netli-fyi?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-netli-fyi"
+              target="_blank"
+              style={{ marginTop: 16 }}
+            >
+              <img
+                src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=284304&theme=light"
+                alt="Netli.fyi - Monitor Your Netlify Sites & Deployments | Product Hunt"
+                style={{ width: 250, height: 54 }}
+                width="250"
+                height="54"
+              />
+            </a>
           </DownloadContainer>
         </Cell>
 
@@ -436,7 +450,7 @@ const ButtonBG = styled.div`
 
 const Button = styled.a`
   display: block;
-  margin: 16px 0px;
+  margin: 16px 0px 16px;
   position: relative;
   padding: 1px;
   border-radius: 8px;
