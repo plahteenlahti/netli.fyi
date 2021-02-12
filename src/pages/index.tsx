@@ -147,7 +147,7 @@ const IndexPage: FC = () => {
               </RoundImageContainer>
             </ImageBG>
             <h3>Manage Your Sites</h3>
-            <P>See all your of your sites at a glance.</P>
+            <P>See all your sites at a glance.</P>
           </Feature>
         </Cell>
         <Cell span={2}>
